@@ -1,6 +1,6 @@
 <template>
-    <div class="customcard">
-        <template if:false={disabled}>
+    <template if:false={disabled}>
+        <div class="customcard">
             <lightning-card title={org.name} icon-name={org.icon}>
                 <!--
                 <div slot="actions">
@@ -22,7 +22,7 @@
                         <lightning-menu-item label="Login with SSO" value="ssologin"></lightning-menu-item>
                     </lightning-button-menu>
                 </div>
-                <div class="slds-var-p-horizontal_x-small ">
+                <div class="slds-var-m-around_small slds-var-p-around_xx-small">
                     <div class="slds-var-m-bottom_x-small">
                         <strong>Login Url :</strong> {org.loginUrl}
                     </div>
@@ -43,14 +43,16 @@
                     </div>
                 </div>
             </lightning-card>
-        </template>
+        </div>
+    </template>
 
-        <template if:true={disabled}>
-            <lightning-card title={org.name} icon-name={org.icon} class="disabled">
+    <template if:true={disabled}>
+        <div class="customcard disabled">
+            <lightning-card title={org.name} icon-name={org.icon}>
                 <div slot="actions" class="slds-button-group" role="group">
                     <lightning-button label="Edit" data-url={org.adminUserName} onclick={editTheRecord} variant="brand"></lightning-button>
                 </div>
-                <div class="slds-var-p-horizontal_x-small ">
+                <div class="slds-var-m-around_small slds-var-p-around_xx-small">
                     <div class="slds-var-m-bottom_x-small">
                         <strong>Login Url :</strong> {org.loginUrl}
                     </div>
@@ -70,7 +72,8 @@
                         <strong>Last Login :</strong> {org.lastLoginDate} | {org.lastLoginStatus}
                     </div>
                 </div>
-            </lightning-card>        
-        </template>
-    </div>
+            </lightning-card>   
+        </div>     
+    </template>
+    
 </template>
