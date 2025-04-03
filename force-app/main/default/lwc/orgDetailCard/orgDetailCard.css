@@ -8,6 +8,10 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* .disabled{
+.no-border-radius{
+    border-radius: 0px;
+}
 
-} */
+.disabled{
+    background-color: #d71515;
+}
