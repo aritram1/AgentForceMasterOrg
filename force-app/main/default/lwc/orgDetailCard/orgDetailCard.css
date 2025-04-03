@@ -1,0 +1,13 @@
+.customcard{
+    border: 1px solid #d71515;
+    border-radius: 5px;
+    background-color: linear-gradient(90deg, #d71515 0%, #ff4e00 100%);
+    color: black;
+    padding: 5px;
+    margin: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* .disabled{
+
+} */

@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Switch to another Org">
+        <div class="slds-m-around_medium">
+            <div class="slds-align_absolute-center slds-p-around_small">
+                <lightning-formatted-text value="Current Org Details"></lightning-formatted-text>
+            </div>
+        </div>
+        <div class="slds-p-around_x-small">
+            <!-- Spinner Implementation -->
+            <template if:true={isLoading}>
+                <div class="slds-align_absolute-center slds-m-around_medium">
+                    <lightning-spinner alternative-text="Loading connected orgs"></lightning-spinner>
+                </div>
+            </template>
+
+            <!-- Display Items -->
+            <template if:true={items.length}>
+                <div class="slds-grid slds-wrap">
+                    <template for:each={items} for:item="item">
+                        <div key={item.id} class="slds-col slds-size_1-of-3">
+                            <c-org-detail-card org={item}></c-org-detail-card>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <!-- No Items Message -->
+            <template if:false={items.length}>
+                <div class="slds-m-around_medium slds-text-align_center">
+                    There are no connected orgs. To use this feature, please create connected orgs.
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

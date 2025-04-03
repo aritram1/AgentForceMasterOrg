@@ -1,0 +1,13 @@
+.container{
+    border: 2px solid rebeccapurple;
+    border-radius: 10px;
+}
+.card{
+    border: 2px solid hwb(271 2% 60%);
+    border-radius: 10px;
+}
+
+.rounded-corners{
+    border: 2px solid hwb(271 2% 60%);
+    border-radius: 10px;
+}

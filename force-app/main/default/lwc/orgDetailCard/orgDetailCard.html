@@ -1,0 +1,48 @@
+<template>
+    <div class="customcard">
+        <lightning-card title={org.name} icon-name={org.icon}>
+            <!-- Actions in the card header -->
+            <div slot="actions">
+                <lightning-button label="Login with SSO" data-url={org.appUrl} onclick={handleloginWithSSO} disabled={disabled} variant="brand" class="slds-m-right_small" ></lightning-button>
+                <lightning-button label="Login" data-url={org.loginUrl} onclick={openOrgLoginPage} disabled={disabled} variant="neutral" class="slds-m-right_small" ></lightning-button>
+                <lightning-button label="Edit" data-url={org.adminUserName} onclick={editTheRecord} disabled={disabled} variant="brand"></lightning-button>
+            </div>
+
+            <!-- Card body for details -->
+            <div class="slds-p-horizontal_x-small slds-m-horizontal_x-small">
+                <div class="slds-m-bottom_x-small slds-text-wrap">
+                    <strong>Login Url :</strong> {org.loginUrl}
+                </div>
+                <div class="slds-m-bottom_x-small">
+                    <strong>Admin Username:</strong> {org.adminUserName}
+                </div>
+                <div class="slds-m-bottom_x-small">
+                    <strong>Admin Password:</strong> {org.adminUserPassword}
+                </div>
+                <div class="slds-m-bottom_x-small">
+                    <strong>Active ? </strong> {org.isActive}
+                </div>
+                <!-- <div class="slds-m-bottom_x-small">
+                    <strong>App URL:</strong> {org.appURL}
+                </div> -->
+                <div class="slds-m-bottom_x-small">
+                    <strong>Connected App Id:</strong> {org.connectedAppId}
+                </div>
+                <div class="slds-m-bottom_x-small">
+                    <strong>Last Login :</strong> {org.lastLoginDate} | {org.lastLoginStatus}
+                </div>
+                <!-- 
+                <div class="slds-m-bottom_x-small">
+                    <strong>Last Login Date:</strong> {org.lastLoginDate}
+                </div>
+                <div class="slds-m-bottom_x-small">
+                    <strong>Last Login Status:</strong> {org.lastLoginStatus}
+                </div>
+                <div class="slds-m-bottom_x-small">
+                    <strong>Org Icon:</strong> {org.orgIcon}
+                </div>
+                -->
+            </div>
+        </lightning-card>
+    </div>
+</template>
