@@ -16,32 +16,35 @@ export default class OrgDetailCard extends LightningElement {
     }
 
     openOrgLoginPage(e){
-        window.open(this.org.loginUrl, '_blank');
+        let url = this.org.loginUrl + '?un=' + this.org.adminUserName;
+        window.open(url , '_blank');
+        //
+    }
+
+    handleMenuSelect(event) {
+        const selected = event.detail.value;
+        if (selected === 'login') {
+            this.openOrgLoginPage(); // or pass org.loginUrl
+        } 
+        else if (selected === 'edit') {
+            this.editTheRecord(); // or pass org.adminUserName
+        }
+        else if (selected === 'ssologin') {
+            this.handleLoginWithSSO(); // or pass org.adminUserName
+        }
     }
 
     editTheRecord(e){
         let recordId = this.org.id;
-        
         console.log('Edit the record1=> ' + recordId);
+        
         // Construct the edit page URL with dynamic recordId
-        const editPageURL = `${domain}/lightning/r/Connected_Org__c/${recordId}/edit`;
-        console.log('editPageURL=> ' + editPageURL);
-        const backgroundContext = encodeURIComponent("/lightning/n/Org_Switcher");
-        console.log('backgroundContext=> ' + backgroundContext);
-        const finalURL = `${editPageURL}?count=1&backgroundContext=${backgroundContext}`;
-        console.log('finalUrl==>' + finalURL);
+        const editPageURL = domain + "/lightning/r/Connected_Org__c/" + recordId + "/edit";
+        const backgroundContext = "/lightning/n/Org_Switcher";
+        const finalURL = editPageURL + "?count=1&backgroundContext=" + encodeURIComponent(backgroundContext);
 
         // Redirect to the constructed URL
         window.location.href = finalURL;
-        // let url = domain 
-        //             + `/${this.org.id}` 
-        //             + '/edit?count=1&backgroundContext=/lightning/r/Connected_Org__c/' 
-        //             + this.org.id 
-        //             + '/view';
-        //window.open(finalURL, '_blank');
-
-        // let s = '/lightning/r/Connected_Org__c/' + a00gL0000017pbVQAQ + 
-        // let m = '/edit?count=1&backgroundContext=%2Flightning%2Fr%2FConnected_Org__c%2Fa00gL0000017pbVQAQ%2Fview
 
     }
 }

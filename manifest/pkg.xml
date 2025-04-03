@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>orgDetails</members>
+		<members>orgDetailCard</members>
 		<members>orgSwitcher</members>
 		<name>LightningComponentBundle</name>
+	</types>
+	<types>
+		<members>Connected_Org_Lightning_Page</members>
+		<name>FlexiPage</name>
 	</types>
 	<version>63.0</version>
 </Package>

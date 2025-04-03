@@ -25,6 +25,10 @@
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
+		<members>Connected_Org_Lightning_Page</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
 		<members>orgDetails</members>
 		<members>orgSwitcher</members>
 		<name>LightningComponentBundle</name>
