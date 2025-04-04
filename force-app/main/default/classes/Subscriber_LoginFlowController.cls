@@ -1,6 +1,6 @@
 // Subscriber class
 
-public with sharing class LoginFlowController {
+public with sharing class Subscriber_LoginFlowController {
 
     // Public REST endpoint of the target org's guest-accessible API
     private static final String USAGE_API_ENDPOINT = 'https://orgfarm-391f6ca95a-dev-ed.develop.my.salesforce-sites.com/usagemonitorsite/services/apexrest/api/usage/new';
