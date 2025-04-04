@@ -72,23 +72,46 @@ This project contains Salesforce Lightning Web Components (LWC) and Apex classes
 
 ## Configuration Details
 
-### What to Do When a New Org is Added
+### How To Enable source org as IdP for SSO
 
-1. **Create a Connected App**:
-   - A connected app needs to be built in the new org to enable secure communication and authentication.
+1. **Enable the OIdentity Provider in the IdP Org**:
+   - The IdP Org needs the IdP configuration. Configure one by Setup > Identity > Identity Provider
+   - Download the metadata file and the certificate file to use later.
 
-2. **Deploy the Login Flow and Related Controller**:
-   - Deploy the main flow (`Custom_Login_Screen_Flow`) behind the login process and the related controller (`Subscriber_LoginFlowController.cls`) to the new org.
+2. **Create a Connected App for each SSO enabled Org**:
+   - A connected app needs to be built in the new org to enable secure communication and authentication. The connected app should have the following values:
+     - **Enable SAML**: `true`
+     - **Start URL**: `<idp domain>/idp/login?app=<connectedAppId>`
+     - **Entity ID**: `<target domain>`
+     - **ACS URL**: `<target domain>`
+     - **Subject Type**: `<Federation Id>`
+     - **IdP Certificate**: `<IdP Certificate>` (from above step)
+     
+### How To Enable target org as SP for SSO
 
-3. **Create a New Login Flow**:
+1. **Enable the SSO settings in the SP Org with IdP metadata file**:
+   - Setup > Single Sign On settings > Upload the metadata file 
+   - Upload certificate 
+   Both files are received from IdP Org in IdP configuration (Step 1)
+
+### What to do to add a new Org
+
+1. **Create a Connected App in the IdP for the new Org**:
+   - Steps same as above.
+
+2. **Deploy the Login Type Flow and Apex Controller for the flow in the new Org**:
+   - Deploy the main flow (`Custom_Login_Screen_Flow`) behind the login process and 
+   - The related controller (`Subscriber_LoginFlowController.cls`) to the new org.
+
+3. **Create a New Login Flow in the new Org**:
    - Use the flow deployed in step 2 to create a new login flow in the subscriber org.
 
-4. **Add a New Remote Site Setting**:
-   - Add a new remote site setting in the subscriber org with the value:
+4. **Add UsageMonitor API endpoint as a New Remote Site Setting in the new Org**:
+   - Add the a new remote site setting in the subscriber org with the value:
      ```
      https://orgfarm-391f6ca95a-dev-ed.develop.my.salesforce-sites.com/usagemonitorsite/services/apexrest/api/usage/new
      ```
-   - This allows the org to make callouts to the external API.
+   - This allows the org to make callouts to the UsageMonitor (external) API.
 
 ---
 
@@ -129,4 +152,4 @@ This project contains Salesforce Lightning Web Components (LWC) and Apex classes
 - **API Key Management**: The `UsageTrackingAPI` and `LoginFlowController` classes use a hardcoded API key. For better security, consider storing the key in Custom Metadata or Custom Settings.
 - **Custom Object**: The `Connected_Org__c` custom object is used to store details about connected orgs.
 
--- EOD -- 
+-- EOD --
