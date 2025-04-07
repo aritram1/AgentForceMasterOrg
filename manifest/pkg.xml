@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>Org_Switcher_PS</members>
-		<name>PermissionSet</name>
-	</types>
-	<types>
-		<members>Agentforce_Hero_Desc</members>
-		<name>CustomLabel</name>
-	</types>
-	<types>
-		<members>Custom_Login_Screen_Flow</members>
-		<name>Flow</name>
-	</types>
-	<types>
 		<members>OrgSwitcherController</members>
-		<members>Subscriber_LoginFlowController</members>
+		<members>Subscriber_LoginFlowController</members>	<!-- For subscriber -->
 		<members>UsageTrackingAPI</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
-		<members>Connected_Org_Lightning_Page</members>
-		<name>FlexiPage</name>
+		<members>Subscriber_Login_Screen_Flow</members> 	<!-- For subscriber -->
+		<name>Flow</name>
 	</types>
 	<types>
-		<members>Custom_Login_Screen_Flow</members>
-		<name>Flow</name>
+		<members>Subscriber_RemoteSite_AgentForceMainOrg</members> 	<!-- For subscriber -->
+		<name>RemoteSiteSetting</name>
+	</types>
+	<types>
+		<members>Org_Switcher_PS</members>
+		<name>PermissionSet</name>
+	</types>
+	<types>
+		<members>Domain_Base_URL</members>
+		<members>IdP_Initiated_Base_URL</members>
+		<name>CustomLabel</name>
+	</types>
+	<types>
+		<members>Connected_Org__c-Connected Org Layout</members>
+		<name>Layout</name>
+	</types>
+	<types>
+		<members>Connected_Org_Lightning_Page</members>
+		<name>FlexiPage</name>
 	</types>
 	<types>
 		<members>orgDetailCard</members>

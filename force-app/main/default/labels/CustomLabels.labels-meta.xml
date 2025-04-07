@@ -13,5 +13,19 @@
         <protected>false</protected>
         <shortDescription>IdP Initiated base url</shortDescription>
         <value>https://orgfarm-391f6ca95a-dev-ed.develop.my.salesforce.com/idp/login?app=</value>
-    </labels>d
+    </labels>
+    <labels>
+        <fullName>Usage_API_Endpoint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IdP Initiated base url</shortDescription>
+        <value>https://orgfarm-391f6ca95a-dev-ed.develop.my.salesforce-sites.com/usagemonitorsite/services/apexrest/api/usage/new</value>
+    </labels>
+    <labels>
+        <fullName>Secret_API_Key_For_UsageAPI</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Secret key to use when tracking usage API</shortDescription>
+        <value>9830702921</value>
+    </labels>
 </CustomLabels>

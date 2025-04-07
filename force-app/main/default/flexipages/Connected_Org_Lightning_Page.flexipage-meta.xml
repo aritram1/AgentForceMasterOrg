@@ -151,6 +151,12 @@
                 <identifier>RecordOrg_Icon__cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Last_Login_Time__c</fieldItem>
+                <identifier>RecordLast_Login_Time__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-791fa4d1-8715-439c-878f-a793a59b8d35</name>
         <type>Facet</type>
     </flexiPageRegions>

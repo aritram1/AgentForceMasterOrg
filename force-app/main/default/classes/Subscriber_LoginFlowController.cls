@@ -3,8 +3,8 @@
 public with sharing class Subscriber_LoginFlowController {
 
     // Public REST endpoint of the target org's guest-accessible API
-    private static final String USAGE_API_ENDPOINT = 'https://orgfarm-391f6ca95a-dev-ed.develop.my.salesforce-sites.com/usagemonitorsite/services/apexrest/api/usage/new';
-    private static final String SECRET_API_KEY = '9830702921';
+    private static final String USAGE_API_ENDPOINT = Label.Secret_API_Key_For_UsageAPI;
+    private static final String SECRET_API_KEY = Label.Secret_API_Key_For_UsageAPI;
 
     /**
      * Invocable method to be called from a Flow (e.g., Login Flow)

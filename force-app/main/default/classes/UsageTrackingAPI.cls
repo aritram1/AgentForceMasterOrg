@@ -2,7 +2,7 @@
 global class UsageTrackingAPI {
 
     // Set your secret token here (can move to Custom Metadata for security)
-    private static final String SECRET_API_KEY = '9830702921';
+    private static final String SECRET_API_KEY = Label.Secret_API_Key_For_UsageAPI;
     private static Map<String,Object> payload = new Map<String,Object>();
     private static String errorMessage = '';
 
