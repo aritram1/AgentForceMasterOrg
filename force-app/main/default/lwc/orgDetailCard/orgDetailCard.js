@@ -54,9 +54,7 @@ export default class OrgDetailCard extends LightningElement {
         let recordId = this.org.id;
         console.log('Edit the record1=> ' + recordId);
         
-        // Construct the view page URL
+        // Construct the view page URL and Open
         const viewPageURL = DOMAIN_BASE_URL + '/lightning/r/Connected_Org__c/' + recordId + '/view';
-        // Redirect to the constructed URL
-        window.location.href = viewPageURL;
     }
 }

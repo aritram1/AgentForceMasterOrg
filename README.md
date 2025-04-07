@@ -109,12 +109,9 @@ This project contains Salesforce Lightning Web Components (LWC) and Apex classes
 
 ### How to Enable Target Org as SP for SSO
 
-1. **Enable the SSO Settings in the SP Org**:
-   - Navigate to:
-     ```
-     Setup > Single Sign-On Settings > Upload the Metadata File
-     ```
-   - Upload the metadata file and the certificate received from the IdP org.
+1. **Enable and configure the SSO Settings in the SP Org**:
+   - Enable SAML settings by navigating ```Setup > Single Sign-On Settings > Turn on SAML```
+   - Navigate to: ```Upload the Metadata File``` and ```Upload the Certificate``` to upload the metadata file and the certificate received from the IdP org.
 
 2. **Verify SSO Configuration**:
    - Ensure that the SSO settings are correctly configured in the SP org.
