@@ -3,7 +3,7 @@
 public with sharing class Subscriber_LoginFlowController {
 
     // Public REST endpoint of the target org's guest-accessible API
-    private static final String USAGE_API_ENDPOINT = Label.Secret_API_Key_For_UsageAPI;
+    private static final String USAGE_API_ENDPOINT = Label.Usage_API_Endpoint;
     private static final String SECRET_API_KEY = Label.Secret_API_Key_For_UsageAPI;
 
     /**
@@ -15,12 +15,7 @@ public with sharing class Subscriber_LoginFlowController {
         for (Id userId : userIds) {
             try {
                 // Fetch basic User info for the logged-in user
-                User u = [
-                    SELECT Id, UserName, Email, LastLoginDate 
-                    FROM User 
-                    WHERE Id = :userId 
-                    LIMIT 1
-                ];
+                User u = [SELECT Id, UserName, Email, LastLoginDate FROM User WHERE Id = :userId LIMIT 1];
 
                 // Build the JSON payload to send
                 Map<String, Object> payload = new Map<String, Object>{
@@ -30,6 +25,8 @@ public with sharing class Subscriber_LoginFlowController {
                 };
                 String body = JSON.serialize(payload);
 
+                System.debug('payload=>' + payload);
+                
                 // Prepare the HTTP request
                 HttpRequest req = new HttpRequest();
                 req.setEndpoint(USAGE_API_ENDPOINT);

@@ -4,18 +4,14 @@ global class UsageTrackingAPI {
     // Set your secret token here (can move to Custom Metadata for security)
     private static final String SECRET_API_KEY = Label.Secret_API_Key_For_UsageAPI;
     private static Map<String,Object> payload = new Map<String,Object>();
+    private static String username = '';
+    private static String logintime = '';
+    private static String apiKey;
+
     private static String errorMessage = '';
 
     @HttpPost
     global static void handlePost() {
-
-        // Extract fields
-        String username = (String) payload.get('username');
-        String logintime = (String) payload.get('logintime');
-        String apiKey = (String) payload.get('apiKey');
-        System.debug('✅ Received username from guest: ' + username);
-        System.debug('✅ Received logintime from guest: ' + logintime);
-        System.debug('✅ Received apiKey from guest: ' + apiKey);
 
         // Set up the response and request context objects
         RestRequest req = RestContext.request;
@@ -28,12 +24,21 @@ global class UsageTrackingAPI {
         // Check if the request body is a valid json
         try {
             payload = (Map<String, Object>) JSON.deserializeUntyped(requestBody);
+            
         } 
         catch (Exception ex) {
             res.statusCode = 400;
             res.responseBody = Blob.valueOf('Invalid JSON');
             return;
         }
+
+        // Extract fields
+        String username = (String) payload.get('username');
+        String logintime = (String) payload.get('logintime');
+        String apiKey = (String) payload.get('apiKey');
+        System.debug('✅ Received username from guest: ' + username);
+        System.debug('✅ Received logintime from guest: ' + logintime);
+        System.debug('✅ Received apiKey from guest: ' + apiKey);
 
         // Check for required fields
         if (!payload.containsKey('username') || !payload.containsKey('apiKey')) {
