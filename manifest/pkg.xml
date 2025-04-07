@@ -36,5 +36,9 @@
 		<members>orgSwitcher</members>
 		<name>LightningComponentBundle</name>
 	</types>
+	<types>
+		<members>Connected_Org__c</members>
+		<name>CustomObject</name>
+	</types>
 	<version>63.0</version>
 </Package>

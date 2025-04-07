@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Org_Icon__c</fullName>
+    <label>Org Icon</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>custom:custom17</fullName>
+                <default>true</default>
+                <label>custom:custom17</label>
+            </value>
+            <value>
+                <fullName>custom:custom9</fullName>
+                <default>false</default>
+                <label>custom:custom9</label>
+            </value>
+            <value>
+                <fullName>standard:campaign</fullName>
+                <default>false</default>
+                <label>standard:campaign</label>
+            </value>
+            <value>
+                <fullName>utility:animal_and_nature</fullName>
+                <default>false</default>
+                <label>utility:animal_and_nature</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
