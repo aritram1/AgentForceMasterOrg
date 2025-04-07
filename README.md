@@ -53,12 +53,14 @@ This project contains Salesforce Lightning Web Components (LWC) and Apex classes
 
 ---
 
-### 3. **LoginFlowController**
-- **Description**: An Apex class designed to send login information to an external API when a user logs in.
-- **File**: `LoginFlowController.cls`
+### 4. **Subscriber_LoginFlowController**
+- **Description**: An Apex class designed to handle login flows for subscriber orgs and manage interactions with external APIs.
+- **File**: `Subscriber_LoginFlowController.cls`
 - **Key Features**:
-  - Sends a POST request to an external API with user login details.
-  - Handles errors gracefully and logs debug information.
+  - Handles login flow logic for subscriber orgs.
+  - Sends a POST request to an external API to track login events.
+  - Validates responses from the external API and logs errors if any issues occur.
+  - Provides utility methods to support login flow customization.
 
 ---
 
@@ -85,7 +87,7 @@ This project contains Salesforce Lightning Web Components (LWC) and Apex classes
 2. **Create a Connected App for Each SSO-Enabled Org**:
    - A connected app needs to be built in the IdP org to enable secure communication and authentication. The connected app should have the following values:
      - **Enable SAML**: `true`
-     - **Start URL**: `<idp domain>/idp/login?app=<connectedAppId>`
+     - **Start URL**: `<idp domain>/idp/login?app=<connectedAppId>` (get this value from connected app > manage > IdP initiated URL)
      - **Entity ID**: `<target domain>`
      - **ACS URL**: `<target domain>`
      - **Subject Type**: `<Federation Id>`
