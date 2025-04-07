@@ -5,8 +5,12 @@
 		<name>ApexClass</name>
 	</types>
 	<types>
-		<members>Custom_Login_Screen_Flow</members>
+		<members>Subscriber_Login_Screen_Flow</members>
 		<name>Flow</name>
+	</types>
+	<types>
+		<members>Subscriber_RemoteSite_AgentForceMainOrg</members>
+		<name>RemoteSiteSetting</name>
 	</types>
 	<version>63.0</version>
 </Package>

@@ -5,7 +5,7 @@
         <label>Send Login Info</label>
         <locationX>176</locationX>
         <locationY>242</locationY>
-        <actionName>LoginFlowController</actionName>
+        <actionName>Subscriber_LoginFlowController</actionName>
         <actionType>apex</actionType>
         <flowTransactionModel>Automatic</flowTransactionModel>
         <inputParameters>
@@ -14,7 +14,7 @@
                 <elementReference>$User.Id</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>LoginFlowController</nameSegment>
+        <nameSegment>Subscriber_LoginFlowController</nameSegment>
         <offset>0</offset>
     </actionCalls>
     <apiVersion>63.0</apiVersion>
@@ -26,8 +26,8 @@
         </value>
     </customProperties>
     <environments>Default</environments>
-    <interviewLabel>Custom Login Screen Flow {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Custom Login Screen Flow</label>
+    <interviewLabel>Subscriber Login Screen Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Subscriber Login Screen Flow</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
