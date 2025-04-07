@@ -1,8 +1,6 @@
 import { LightningElement, api, track } from 'lwc';
-
-const domain = 'https://orgfarm-391f6ca95a-dev-ed.develop.lightning.force.com';
-
-const idpInitiatedUrl = 'https://orgfarm-391f6ca95a-dev-ed.develop.my.salesforce.com/idp/login?app=';
+import DOMAIN_BASE_URL from '@salesforce/label/c.Domain_Base_URL';
+import IDP_INITIATED_BASE_URL from '@salesforce/label/c.IdP_Initiated_Base_URL';
 
 export default class OrgDetailCard extends LightningElement {
 
@@ -14,25 +12,27 @@ export default class OrgDetailCard extends LightningElement {
     }
 
     handleLoginWithSSO(e){
-        window.open(idpInitiatedUrl + this.org.connectedAppId , '_blank');
+        window.open(IDP_INITIATED_BASE_URL + this.org.connectedAppId , '_blank');
     }
 
     openOrgLoginPage(e){
         let url = this.org.loginUrl + '?un=' + this.org.adminUserName;
         window.open(url , '_blank');
-        //
     }
 
     handleMenuSelect(event) {
         const selected = event.detail.value;
         if (selected === 'login') {
-            this.openOrgLoginPage(); // or pass org.loginUrl
+            this.openOrgLoginPage();
         } 
         else if (selected === 'edit') {
-            this.editTheRecord(); // or pass org.adminUserName
+            this.editTheRecord();
         }
         else if (selected === 'ssologin') {
-            this.handleLoginWithSSO(); // or pass org.adminUserName
+            this.handleLoginWithSSO();
+        }
+        else if (selected === 'view') {
+            this.viewTheRecord();
         }
     }
 
@@ -41,12 +41,22 @@ export default class OrgDetailCard extends LightningElement {
         console.log('Edit the record1=> ' + recordId);
         
         // Construct the edit page URL with dynamic recordId
-        const editPageURL = domain + "/lightning/r/Connected_Org__c/" + recordId + "/edit";
+        const editPageURL = DOMAIN_BASE_URL + "/lightning/r/Connected_Org__c/" + recordId + "/edit";
         const backgroundContext = "/lightning/n/Org_Switcher";
         const finalURL = editPageURL + "?count=1&backgroundContext=" + encodeURIComponent(backgroundContext);
 
         // Redirect to the constructed URL
         window.location.href = finalURL;
 
+    }
+
+    viewTheRecord(e){
+        let recordId = this.org.id;
+        console.log('Edit the record1=> ' + recordId);
+        
+        // Construct the view page URL
+        const viewPageURL = DOMAIN_BASE_URL + '/lightning/r/Connected_Org__c/' + recordId + '/view';
+        // Redirect to the constructed URL
+        window.location.href = viewPageURL;
     }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Domain_Base_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hero Description Part 1</shortDescription>
+        <value>https://orgfarm-391f6ca95a-dev-ed.develop.lightning.force.com</value>
+    </labels>
+    <labels>
+        <fullName>IdP_Initiated_Base_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IdP Initiated base url</shortDescription>
+        <value>https://orgfarm-391f6ca95a-dev-ed.develop.my.salesforce.com/idp/login?app=</value>
+    </labels>d
+</CustomLabels>

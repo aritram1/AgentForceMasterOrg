@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>Subscriber_LoginFlowController</members>
-		<members>UsageTrackingAPI</members>
-		<members>OrgSwitcherController</members>
+		<members>AgentforceHomepageController</members>
 		<name>ApexClass</name>
-	</types>
-	<types>
-		<members>Connected_Org_Lightning_Page</members>
-		<name>FlexiPage</name>
-	</types>
-	<types>
-		<members>Custom_Login_Screen_Flow</members>
-		<name>Flow</name>
-	</types>
-	<types>
-		<members>orgDetailCard</members>
-		<members>orgSwitcher</members>
-		<name>LightningComponentBundle</name>
 	</types>
 	<version>63.0</version>
 </Package>
