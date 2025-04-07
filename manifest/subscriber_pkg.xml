@@ -12,5 +12,10 @@
 		<members>Subscriber_RemoteSite_AgentForceMainOrg</members>
 		<name>RemoteSiteSetting</name>
 	</types>
+	<types>
+		<members>Usage_API_Endpoint</members>
+		<members>Secret_API_Key_For_UsageAPI</members>
+		<name>CustomLabel</name>
+	</types>
 	<version>63.0</version>
 </Package>

@@ -21,6 +21,8 @@
 	<types>
 		<members>Domain_Base_URL</members>
 		<members>IdP_Initiated_Base_URL</members>
+		<members>Secret_API_Key_For_UsageAPI</members>	<!-- For subscriber -->
+		<members>Usage_API_Endpoint</members>	<!-- For subscriber -->
 		<name>CustomLabel</name>
 	</types>
 	<types>

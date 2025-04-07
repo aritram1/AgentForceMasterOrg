@@ -59,8 +59,8 @@
             <targetReference>Send_Login_Info</targetReference>
         </connector>
         <fields>
-            <name>text</name>
-            <fieldText>&lt;p&gt;Hello Guys!&lt;/p&gt;</fieldText>
+            <name>WelcomeMessage</name>
+            <fieldText>&lt;p&gt;Hi, &lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!$User.FirstName} {!$User.LastName} &lt;/span&gt; &lt;/p&gt;&lt;p&gt;Welcome to Salesforce !&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -73,5 +73,5 @@
             <targetReference>Custom_Login_Screen</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
 </Flow>
