@@ -29,10 +29,30 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Admin_User_Name__c</fieldItem>
+                <identifier>RecordAdmin_User_Name_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.App_URL__c</fieldItem>
+                <identifier>RecordApp_URL_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Last_Login_Date__c</fieldItem>
-                <identifier>RecordLast_Login_Date_cField2</identifier>
+                <fieldItem>Record.IsActive__c</fieldItem>
+                <identifier>RecordIsActive__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-af1f9b64-5a3e-4729-a2a1-3bfc7b683d29</name>
@@ -95,16 +115,6 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Admin_User_Name__c</fieldItem>
-                <identifier>RecordAdmin_User_Name_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Admin_User_Password__c</fieldItem>
@@ -127,16 +137,6 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.IsActive__c</fieldItem>
-                <identifier>RecordIsActive__cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.Login_URL__c</fieldItem>
                 <identifier>RecordLogin_URL__cField</identifier>
             </fieldInstance>
@@ -149,12 +149,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Org_Icon__c</fieldItem>
                 <identifier>RecordOrg_Icon__cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldItem>Record.Last_Login_Time__c</fieldItem>
-                <identifier>RecordLast_Login_Time__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-791fa4d1-8715-439c-878f-a793a59b8d35</name>
@@ -187,18 +181,18 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Last_Login_Status__c</fieldItem>
-                <identifier>RecordLast_Login_Status_cField</identifier>
+                <fieldItem>Record.Last_Login_Time__c</fieldItem>
+                <identifier>RecordLast_Login_Time__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>readonly</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.App_URL__c</fieldItem>
-                <identifier>RecordApp_URL_cField</identifier>
+                <fieldItem>Record.Last_Login_Status__c</fieldItem>
+                <identifier>RecordLast_Login_Status_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-54dbd078-c82e-4227-9fd6-6b3c5281e33d</name>
