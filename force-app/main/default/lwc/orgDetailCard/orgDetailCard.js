@@ -2,6 +2,8 @@ import { LightningElement, api, track } from 'lwc';
 
 const domain = 'https://orgfarm-391f6ca95a-dev-ed.develop.lightning.force.com';
 
+const idpInitiatedUrl = 'https://orgfarm-391f6ca95a-dev-ed.develop.my.salesforce.com/idp/login?app=';
+
 export default class OrgDetailCard extends LightningElement {
 
     @api org;
@@ -12,7 +14,7 @@ export default class OrgDetailCard extends LightningElement {
     }
 
     handleLoginWithSSO(e){
-        window.open(this.org.appURL, '_blank');
+        window.open(idpInitiatedUrl + this.org.connectedAppId , '_blank');
     }
 
     openOrgLoginPage(e){
