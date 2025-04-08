@@ -132,21 +132,18 @@ To add a new SP org to the system, follow these steps:
 #### In the New SP Org:
 1. **Enable and configure the SSO Settings in the SP Org**:
    - Enable SAML settings by navigating ```Setup > Single Sign-On Settings > Turn on SAML```
-   - Name it appropriately (e.g. "AgentForce Main Org")
+   - Create one SAML config (name it appropriately e.g. "AgentForce Main Org")
    - Navigate to: ```Upload the Metadata File``` and ```Upload the Certificate``` to upload the metadata file and the certificate received from the IdP org.
 
-2. **Deploy the Login Flow and Related Controller**:
-   - Deploy the main flow (`Custom_Login_Screen_Flow`) behind the login process and the related controller (`Subscriber_LoginFlowController.cls`) to the new SP org.
+2. **Deploy the components in `subscriber_pkg.xml`**:
+   - the following components require to be in the subscriber org to facilitate usage tracking
+   -- main login flow (`Custom_Login_Screen_Flow`) behind the login process and 
+   -- the related controller (`Subscriber_LoginFlowController.cls`) to the new SP org.
+   -- the remote site (https://orgfarm-391f6ca95a-dev-ed.develop.my.salesforce-sites.com/usagemonitorsite/services/apexrest/api/usage/new)
+   -- custom labels for domain and idp url
 
 3. **Create a New Login Flow**:
-   - Use the flow deployed in step 3 to create a new login flow in the SP org.
-
-4. **Add a New Remote Site Setting to allow the IdP URL**:
-   - Add a new remote site setting in the SP org with the value:
-     ```
-     https://orgfarm-391f6ca95a-dev-ed.develop.my.salesforce-sites.com/usagemonitorsite/services/apexrest/api/usage/new
-     ```
-   - This allows the SP org to make callouts to the external API.
+   - Use the flow deployed in step 3 to create a new login flow in the SP org (Setup > Login Flow > New)
 
 ---
 
