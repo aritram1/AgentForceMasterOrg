@@ -111,6 +111,7 @@ This project contains Salesforce Lightning Web Components (LWC) and Apex classes
 
 1. **Enable and configure the SSO Settings in the SP Org**:
    - Enable SAML settings by navigating ```Setup > Single Sign-On Settings > Turn on SAML```
+   - Name it appropriately (e.g. "AgentForce Main Org")
    - Navigate to: ```Upload the Metadata File``` and ```Upload the Certificate``` to upload the metadata file and the certificate received from the IdP org.
 
 2. **Verify SSO Configuration**:
@@ -129,20 +130,18 @@ To add a new SP org to the system, follow these steps:
    - Use the new SP org's domain as the **Entity ID** and **ACS URL**.
 
 #### In the New SP Org:
-2. **Enable SSO Settings**:
-   - Navigate to:
-     ```
-     Setup > Single Sign-On Settings > Upload the Metadata File
-     ```
-   - Upload the metadata file and certificate received from the IdP org.
+1. **Enable and configure the SSO Settings in the SP Org**:
+   - Enable SAML settings by navigating ```Setup > Single Sign-On Settings > Turn on SAML```
+   - Name it appropriately (e.g. "AgentForce Main Org")
+   - Navigate to: ```Upload the Metadata File``` and ```Upload the Certificate``` to upload the metadata file and the certificate received from the IdP org.
 
-3. **Deploy the Login Flow and Related Controller**:
+2. **Deploy the Login Flow and Related Controller**:
    - Deploy the main flow (`Custom_Login_Screen_Flow`) behind the login process and the related controller (`Subscriber_LoginFlowController.cls`) to the new SP org.
 
-4. **Create a New Login Flow**:
+3. **Create a New Login Flow**:
    - Use the flow deployed in step 3 to create a new login flow in the SP org.
 
-5. **Add a New Remote Site Setting to allow the IdP URL**:
+4. **Add a New Remote Site Setting to allow the IdP URL**:
    - Add a new remote site setting in the SP org with the value:
      ```
      https://orgfarm-391f6ca95a-dev-ed.develop.my.salesforce-sites.com/usagemonitorsite/services/apexrest/api/usage/new
