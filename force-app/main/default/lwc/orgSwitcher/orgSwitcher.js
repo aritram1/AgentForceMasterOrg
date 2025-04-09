@@ -11,6 +11,7 @@ import CONNECTED_APP_ID_FIELD from '@salesforce/schema/Connected_Org__c.Connecte
 import LAST_LOGIN_DATE_FIELD from '@salesforce/schema/Connected_Org__c.Last_Login_Date__c';
 import LAST_LOGIN_STATUS_FIELD from '@salesforce/schema/Connected_Org__c.Last_Login_Status__c';
 import ORG_ICON_FIELD from '@salesforce/schema/Connected_Org__c.Org_Icon__c';
+import IDP_INITIATED_BASE_URL from '@salesforce/label/c.IdP_Initiated_Base_URL';
 
 const FIELDS = [
     'Id',
@@ -49,7 +50,7 @@ export default class OrgSwitcher extends LightningElement {
                     adminUserName: record.fields[ADMIN_USER_NAME_FIELD.fieldApiName].value,
                     adminUserPassword: record.fields[ADMIN_USER_PASSWORD_FIELD.fieldApiName].value,
                     loginUrl: record.fields[LOGIN_URL_FIELD.fieldApiName].value,
-                    connectedAppId: record.fields[CONNECTED_APP_ID_FIELD.fieldApiName].value,
+                    connectedAppId: IDP_INITIATED_BASE_URL + record.fields[CONNECTED_APP_ID_FIELD.fieldApiName].value,
                     appUrl: record.fields[APP_URL_FIELD.fieldApiName].value,
                     icon: record.fields[ORG_ICON_FIELD.fieldApiName].value,
                     isActive: (record.fields[IS_ACTIVE_FIELD.fieldApiName].value == true) ? 'Yes' : 'No',

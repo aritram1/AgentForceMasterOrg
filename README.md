@@ -99,8 +99,7 @@ This project contains Salesforce Lightning Web Components (LWC) and Apex classes
    - A connected app needs to be built in the IdP org to enable secure communication and authentication. The connected app should have the following values:
      - **Enable SAML**: `true`
      - **Start URL**: `<idp domain>/idp/login?app=<connectedAppId>` (get this value from connected app > manage > IdP initiated URL)
-     - **Entity ID**: `<target domain>`
-     - **ACS URL**: `<target domain>`
+     - **Entity ID** and **ACS URL**: `<target domain>` (the values should be same and must end with `my.salesforce.com`)
      - **Subject Type**: `<Federation Id>`
      - **IdP Certificate**: `<IdP Certificate>` (from the above step)
    - Assign the connected app to the System Administrator profile.
