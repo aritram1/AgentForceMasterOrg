@@ -143,7 +143,11 @@ To add a new SP org to the system, follow these steps:
    -- custom labels for domain and idp url
 
 3. **Create a New Login Flow**:
-   - Use the flow deployed in step 3 to create a new login flow in the SP org (Setup > Login Flow > New)
+   - Visit Set up > Login > Login Flow to create a login flow with the flow deployed in step 2 above.
+   - Ensure naming it appropriately e.g. "Login To Salesforce"
+
+4. **Enable User for SSO**:
+   - Set the federation Id same for both the orgs so users can use SSO.
 
 ---
 
