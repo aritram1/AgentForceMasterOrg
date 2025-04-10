@@ -20,7 +20,9 @@
                         onselect={handleMenuSelect}>
                         <lightning-menu-item label="View" value="view"></lightning-menu-item>
                         <lightning-menu-item label="Login" value="login"></lightning-menu-item>
-                        <lightning-menu-item label="Login with SSO" value="ssologin"></lightning-menu-item>
+                        <template if:true={org.isSSOEnabled}>   <!-- Show the button only if the org is SSO enabled -->
+                            <lightning-menu-item label="Login with SSO" value="ssologin"></lightning-menu-item>
+                        </template>
                     </lightning-button-menu>
                 </div>
                 <div class="slds-var-m-around_small slds-var-p-around_xx-small">
@@ -36,6 +38,11 @@
                     <div class="slds-var-m-bottom_x-small">
                         <strong>Active ? </strong> {org.isActive}
                     </div>
+                    <div class="slds-var-m-bottom_x-small slds-grid slds-grid_align-center">
+                        <strong class="slds-var-m-right_x-small">SSO Enabled?</strong>
+                        <lightning-input type="checkbox" label="" name="ssoEnabled" checked={org.isSSOEnabled}></lightning-input>
+                    </div>
+                    
                     <div class="slds-var-m-bottom_x-small">
                         <strong>Connected App URL:</strong> {org.connectedAppId}
                     </div>

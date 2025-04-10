@@ -11,6 +11,7 @@ import CONNECTED_APP_ID_FIELD from '@salesforce/schema/Connected_Org__c.Connecte
 import LAST_LOGIN_TIME_FIELD from '@salesforce/schema/Connected_Org__c.Last_Login_Time__c';
 import LAST_LOGIN_STATUS_FIELD from '@salesforce/schema/Connected_Org__c.Last_Login_Status__c';
 import ORG_ICON_FIELD from '@salesforce/schema/Connected_Org__c.Org_Icon__c';
+import IS_SSO_ENABLED from '@salesforce/schema/Connected_Org__c.SSO_Enabled__c';
 import IDP_INITIATED_BASE_URL from '@salesforce/label/c.IdP_Initiated_Base_URL';
 
 const FIELDS = [
@@ -20,6 +21,7 @@ const FIELDS = [
     ADMIN_USER_PASSWORD_FIELD,
     LOGIN_URL_FIELD,
     IS_ACTIVE_FIELD,
+    IS_SSO_ENABLED,
     APP_URL_FIELD,
     CONNECTED_APP_ID_FIELD,
     LAST_LOGIN_TIME_FIELD,
@@ -55,6 +57,7 @@ export default class OrgSwitcher extends LightningElement {
                     appUrl: record.fields[APP_URL_FIELD.fieldApiName].value,
                     icon: record.fields[ORG_ICON_FIELD.fieldApiName].value,
                     isActive: (record.fields[IS_ACTIVE_FIELD.fieldApiName].value == true) ? 'Yes' : 'No',
+                    isSSOEnabled: record.fields[IS_SSO_ENABLED.fieldApiName].value,
                     lastLoginTime: record.fields[LAST_LOGIN_TIME_FIELD.fieldApiName].value,
                     lastLoginTimeFormatted: this.formatLastLoginTime(record.fields[LAST_LOGIN_TIME_FIELD.fieldApiName].value ?? ''),
                     lastLoginStatus: record.fields[LAST_LOGIN_STATUS_FIELD.fieldApiName].value

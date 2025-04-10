@@ -12,7 +12,8 @@ export default class OrgDetailCard extends LightningElement {
     }
 
     handleLoginWithSSO(e){
-        window.open(IDP_INITIATED_BASE_URL + this.org.connectedAppId , '_blank');
+        // window.open(IDP_INITIATED_BASE_URL + this.org.connectedAppId , '_blank');
+        window.open(this.org.connectedAppId , '_blank');
     }
 
     openOrgLoginPage(e){
