@@ -36,6 +36,10 @@
                 <behavior>Edit</behavior>
                 <field>Last_Login_Time__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SSO_Enabled__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
