@@ -56,8 +56,10 @@ export default class OrgSwitcher extends LightningElement {
                     connectedAppId: IDP_INITIATED_BASE_URL + record.fields[CONNECTED_APP_ID_FIELD.fieldApiName].value,
                     appUrl: record.fields[APP_URL_FIELD.fieldApiName].value,
                     icon: record.fields[ORG_ICON_FIELD.fieldApiName].value,
-                    isActive: (record.fields[IS_ACTIVE_FIELD.fieldApiName].value == true) ? 'Yes' : 'No',
+                    isActive: record.fields[IS_ACTIVE_FIELD.fieldApiName].value,
+                    isActiveText: (record.fields[IS_ACTIVE_FIELD.fieldApiName].value == true) ? 'Yes' : 'No',
                     isSSOEnabled: record.fields[IS_SSO_ENABLED.fieldApiName].value,
+                    isSSOEnabledText: (record.fields[IS_SSO_ENABLED.fieldApiName].value == true) ? 'Yes' : 'No',
                     lastLoginTime: record.fields[LAST_LOGIN_TIME_FIELD.fieldApiName].value,
                     lastLoginTimeFormatted: this.formatLastLoginTime(record.fields[LAST_LOGIN_TIME_FIELD.fieldApiName].value ?? ''),
                     lastLoginStatus: record.fields[LAST_LOGIN_STATUS_FIELD.fieldApiName].value

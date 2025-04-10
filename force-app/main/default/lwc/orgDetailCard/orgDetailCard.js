@@ -5,11 +5,11 @@ import IDP_INITIATED_BASE_URL from '@salesforce/label/c.IdP_Initiated_Base_URL';
 export default class OrgDetailCard extends LightningElement {
 
     @api org;
-    disabled = false;
 
-    connectedCallback(){
-        this.disabled = (this.org.isActive == 'No');
-    }
+    // connectedCallback(){
+    //     this.disabled = (this.org.isActive == 'No');
+    //     this.ssoEnabled = (this.org.isSSOEnabled == true);
+    // }
 
     handleLoginWithSSO(e){
         // window.open(IDP_INITIATED_BASE_URL + this.org.connectedAppId , '_blank');

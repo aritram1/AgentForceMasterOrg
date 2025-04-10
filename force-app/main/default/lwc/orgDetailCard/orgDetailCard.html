@@ -2,13 +2,6 @@
     <template if:false={disabled}>
         <div class="customcard">
             <lightning-card title={org.name} icon-name={org.icon}>
-                <!--
-                <div slot="actions">
-                    <lightning-button label="Login with SSO" data-url={org.appUrl} onclick={handleloginWithSSO} disabled={disabled} variant="brand" class="slds-m-right_small" ></lightning-button>
-                    <lightning-button label="Login" data-url={org.loginUrl} onclick={openOrgLoginPage} disabled={disabled} variant="neutral" class="slds-m-right_small" ></lightning-button>
-                    <lightning-button label="Edit" data-url={org.adminUserName} onclick={editTheRecord} variant="brand"></lightning-button>
-                </div>
-                -->
                 <div slot="actions" class="slds-button-group" role="group">
                     <lightning-button label="Edit" data-url={org.adminUserName} onclick={editTheRecord} variant="brand" class="slds-var-m-right_xx-small"></lightning-button>
                     <lightning-button-menu 
@@ -36,13 +29,15 @@
                         <strong>Admin Password:</strong> {org.adminUserPassword}
                     </div>
                     <div class="slds-var-m-bottom_x-small">
-                        <strong>Active ? </strong> {org.isActive}
+                        <strong>Active ? </strong> {org.isActiveText}
                     </div>
-                    <div class="slds-var-m-bottom_x-small slds-grid slds-grid_align-center">
+                    <div class="slds-var-m-bottom_x-small">
+                        <strong>SSO Enabled ? </strong> {org.isSSOEnabledText}
+                    </div>
+                    <!-- <div class="slds-var-p-left_x-small slds-grid">
                         <strong class="slds-var-m-right_x-small">SSO Enabled?</strong>
-                        <lightning-input type="checkbox" label="" name="ssoEnabled" checked={org.isSSOEnabled}></lightning-input>
-                    </div>
-                    
+                        <lightning-input type="checkbox" label="" name="ssoEnabled" checked={org.isSSOEnabled} disabled></lightning-input>
+                    </div> -->
                     <div class="slds-var-m-bottom_x-small">
                         <strong>Connected App URL:</strong> {org.connectedAppId}
                     </div>
