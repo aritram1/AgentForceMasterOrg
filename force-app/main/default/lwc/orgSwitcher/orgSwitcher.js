@@ -8,7 +8,7 @@ import IS_ACTIVE_FIELD from '@salesforce/schema/Connected_Org__c.IsActive__c';
 import APP_URL_FIELD from '@salesforce/schema/Connected_Org__c.App_URL__c';
 import LOGIN_URL_FIELD from '@salesforce/schema/Connected_Org__c.Login_URL__c';
 import CONNECTED_APP_ID_FIELD from '@salesforce/schema/Connected_Org__c.Connected_App_Id__c';
-import LAST_LOGIN_DATE_FIELD from '@salesforce/schema/Connected_Org__c.Last_Login_Date__c';
+import LAST_LOGIN_TIME_FIELD from '@salesforce/schema/Connected_Org__c.Last_Login_Time__c';
 import LAST_LOGIN_STATUS_FIELD from '@salesforce/schema/Connected_Org__c.Last_Login_Status__c';
 import ORG_ICON_FIELD from '@salesforce/schema/Connected_Org__c.Org_Icon__c';
 import IDP_INITIATED_BASE_URL from '@salesforce/label/c.IdP_Initiated_Base_URL';
@@ -22,7 +22,7 @@ const FIELDS = [
     IS_ACTIVE_FIELD,
     APP_URL_FIELD,
     CONNECTED_APP_ID_FIELD,
-    LAST_LOGIN_DATE_FIELD,
+    LAST_LOGIN_TIME_FIELD,
     LAST_LOGIN_STATUS_FIELD,
     ORG_ICON_FIELD
 ];
@@ -36,13 +36,14 @@ export default class OrgSwitcher extends LightningElement {
         objectApiName: CONNECTED_ORG_OBJECT,
         listViewApiName: 'All',
         fields: FIELDS,
-        filterBy: [{ fieldApiName: IS_ACTIVE_FIELD.fieldApiName, operator: 'equals', value: true }]
+        //filterBy: [{ fieldApiName: IS_ACTIVE_FIELD.fieldApiName, operator: 'equals', value: true }]
     })
     wiredConnectedOrgs({ error, data }) {
         try{
             console.log(`inside wiredConnectedOrgs => ${new Date().getMilliseconds()}`);
-            
+            console.log(`inside wiredConnectedOrgs lolu ${JSON.stringify(data)}`); //  => ${data}`);
             if (data) {
+                console.log(`I am here`);
                 this.items = data.records.records.map(record => ({
                     serialNumber: record.id,
                     id: record.id,
@@ -54,18 +55,36 @@ export default class OrgSwitcher extends LightningElement {
                     appUrl: record.fields[APP_URL_FIELD.fieldApiName].value,
                     icon: record.fields[ORG_ICON_FIELD.fieldApiName].value,
                     isActive: (record.fields[IS_ACTIVE_FIELD.fieldApiName].value == true) ? 'Yes' : 'No',
-                    lastLoginDate: record.fields[LAST_LOGIN_DATE_FIELD.fieldApiName].value,
+                    lastLoginTime: record.fields[LAST_LOGIN_TIME_FIELD.fieldApiName].value,
+                    lastLoginTimeFormatted: this.formatLastLoginTime(record.fields[LAST_LOGIN_TIME_FIELD.fieldApiName].value ?? ''),
                     lastLoginStatus: record.fields[LAST_LOGIN_STATUS_FIELD.fieldApiName].value
                 }));
+                console.log(`I am here too =>${this.items.length}`);
                 this.error = undefined;
-            } else if (error) {
+            } 
+            else if (error) {
                 this.error = error;
                 console.error('Error fetching connected orgs:', error);
             }
         }
         catch(error){
+            console.log('Some error!' + error);
             console.log(error);
         }   
         this.isLoading = false; // Hide spinner after data is loaded
+    }   
+
+    formatLastLoginTime(lastLoginTime) {
+        let formattedValue = 'Unavailable';
+        try {
+            if (lastLoginTime != '') {
+                const options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+                formattedValue = new Date(lastLoginTime).toLocaleString('en-US', options);
+            }
+        } 
+        catch (error) {
+            console.error('Error formatting last login time:', error);
+        }
+        return formattedValue;
     }
 }

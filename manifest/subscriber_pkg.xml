@@ -17,5 +17,9 @@
 		<members>Secret_API_Key_For_UsageAPI</members>
 		<name>CustomLabel</name>
 	</types>
+	<types>
+		<members>Password_Never_Expires_PS</members>
+		<name>PermissionSet</name>
+	</types>
 	<version>63.0</version>
 </Package>

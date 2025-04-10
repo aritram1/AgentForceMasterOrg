@@ -40,7 +40,10 @@
                         <strong>Connected App URL:</strong> {org.connectedAppId}
                     </div>
                     <div class="slds-var-m-bottom_x-small">
-                        <strong>Last Login :</strong> {org.lastLoginDate} | {org.lastLoginStatus}
+                        <strong>Last Login :</strong> {org.lastLoginTimeFormatted}
+                    </div>
+                    <div class="slds-var-m-bottom_x-small">
+                        <strong>Login Status :</strong> {org.lastLoginStatus}
                     </div>
                 </div>
             </lightning-card>

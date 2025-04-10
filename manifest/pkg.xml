@@ -26,6 +26,10 @@
 		<name>CustomLabel</name>
 	</types>
 	<types>
+		<members>Password_Never_Expires_PS</members>	<!-- For subscriber -->
+		<name>PermissionSet</name>
+	</types>
+	<types>
 		<members>Connected_Org__c-Connected Org Layout</members>
 		<name>Layout</name>
 	</types>
