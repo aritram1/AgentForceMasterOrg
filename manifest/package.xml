@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	
 	<types>
-		<members>Connected_Org__c</members>
-		<name>CustomObject</name>
+		<members>Password_Never_Expires_PS</members>
+		<name>PermissionSet</name>
 	</types>
 	<version>63.0</version>
 </Package>

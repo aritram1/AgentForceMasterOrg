@@ -39,10 +39,17 @@
                         <lightning-input type="checkbox" label="" name="ssoEnabled" checked={org.isSSOEnabled} disabled></lightning-input>
                     </div> -->
                     <div class="slds-var-m-bottom_x-small">
+<<<<<<< HEAD
                         <strong>IdP Initiated SSO URL:</strong> {org.ipdInitiatedLoginUrl}
                     </div>
                     <div class="slds-var-m-bottom_x-small">
                         <strong>Last Login :</strong> {org.lastLoginTime}
+=======
+                        <strong>Connected App URL:</strong> {org.connectedAppId}
+                    </div>
+                    <div class="slds-var-m-bottom_x-small">
+                        <strong>Last Login :</strong> {org.lastLoginTimeFormatted}
+>>>>>>> 420ba1f5a101775f2954cfe75b36e58227bbab09
                     </div>
                     <div class="slds-var-m-bottom_x-small">
                         <strong>Login Status :</strong> {org.lastLoginStatus}

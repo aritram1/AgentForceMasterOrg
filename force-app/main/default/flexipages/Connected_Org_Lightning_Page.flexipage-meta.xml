@@ -211,8 +211,13 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+<<<<<<< HEAD
                 <fieldItem>Record.IdP_Initiated_Login_URL__c</fieldItem>
                 <identifier>RecordIdP_Initiated_Login_URL__cField</identifier>
+=======
+                <fieldItem>Record.Org_Icon__c</fieldItem>
+                <identifier>RecordOrg_Icon__cField</identifier>
+>>>>>>> 420ba1f5a101775f2954cfe75b36e58227bbab09
             </fieldInstance>
         </itemInstances>
         <itemInstances>

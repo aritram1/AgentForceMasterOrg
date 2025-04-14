@@ -40,10 +40,13 @@
                 <behavior>Edit</behavior>
                 <field>SSO_Enabled__c</field>
             </layoutItems>
+<<<<<<< HEAD
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>IdP_Initiated_Login_URL__c</field>
             </layoutItems>
+=======
+>>>>>>> 420ba1f5a101775f2954cfe75b36e58227bbab09
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

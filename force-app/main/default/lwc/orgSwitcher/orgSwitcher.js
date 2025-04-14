@@ -25,6 +25,7 @@ export default class OrgSwitcher extends LightningElement {
                     lastLoginTime: record.Last_Login_Time__c,
                     lastLoginStatus: record.Last_Login_Status__c
                 }));
+                console.log(`I am here too =>${this.items.length}`);
                 this.error = undefined;
             })
             .catch((error) => {

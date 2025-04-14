@@ -5,6 +5,7 @@ import IDP_INITIATED_BASE_URL from '@salesforce/label/c.IdP_Initiated_Base_URL';
 export default class OrgDetailCard extends LightningElement {
 
     @api org;
+<<<<<<< HEAD
     disabled = false;
     
     connectedCallback(){
@@ -12,6 +13,23 @@ export default class OrgDetailCard extends LightningElement {
         // this.org.isSSOEnabled = (this.org.isSSOEnabled == true) ? 'Yes' : 'No' ;
     }
 
+=======
+
+    // connectedCallback(){
+    //     this.disabled = (this.org.isActive == 'No');
+    //     this.ssoEnabled = (this.org.isSSOEnabled == true);
+    // }
+
+    handleLoginWithSSO(e){
+        // window.open(IDP_INITIATED_BASE_URL + this.org.connectedAppId , '_blank');
+        window.open(this.org.connectedAppId , '_blank');
+    }
+
+    openOrgLoginPage(e){
+        let url = this.org.loginUrl + '?un=' + this.org.adminUserName;
+        window.open(url , '_blank');
+    }
+>>>>>>> 420ba1f5a101775f2954cfe75b36e58227bbab09
 
     handleMenuSelect(event) {
         const selected = event.detail.value;
