@@ -4,10 +4,14 @@ public with sharing class OrgSwitcherController {
         try {
             // Query to fetch only active connected orgs
             return [
-                SELECT Id, Name, Admin_User_Name__c, Admin_User_Password__c, IsActive__c, 
-                       Connected_App_Id__c, Last_Login_Date__c, 
-                       Last_Login_Status__c, Org_Icon__c/*, App_URL__c*/
-                FROM Connected_Org__c
+            SELECT 
+                Id, Name, Admin_User_Name__c, Admin_User_Password__c, 
+                IsActive__c, Connected_App_Id__c, 
+                Last_Login_Status__c, Org_Icon__c,
+                IdP_Initiated_Login_URL__c,Last_Login_Time__c,
+                Login_URL__c,SSO_Enabled__c
+            FROM Connected_Org__c 
+            ORDER BY Last_Login_Time__c asc
             ];
         } catch (Exception ex) {
             // Log the exception and throw a user-friendly error

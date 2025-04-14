@@ -18,10 +18,11 @@ export default class OrgSwitcher extends LightningElement {
                     adminUserPassword: record.Admin_User_Password__c,
                     loginUrl: record.Login_URL__c,
                     connectedAppId: record.Connected_App_Id__c,
-                    appUrl: record.App_URL__c,
+                    ipdInitiatedLoginUrl: record.IdP_Initiated_Login_URL__c,
                     icon: record.Org_Icon__c,
                     isActive: record.IsActive__c ? 'Yes' : 'No',
-                    lastLoginDate: record.Last_Login_Date__c,
+                    isSSOEnabled: record.SSO_Enabled__c ? 'Yes' : 'No',
+                    lastLoginTime: record.Last_Login_Time__c,
                     lastLoginStatus: record.Last_Login_Status__c
                 }));
                 this.error = undefined;

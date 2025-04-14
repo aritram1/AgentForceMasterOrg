@@ -5,21 +5,13 @@ import IDP_INITIATED_BASE_URL from '@salesforce/label/c.IdP_Initiated_Base_URL';
 export default class OrgDetailCard extends LightningElement {
 
     @api org;
-
-    // connectedCallback(){
-    //     this.disabled = (this.org.isActive == 'No');
-    //     this.ssoEnabled = (this.org.isSSOEnabled == true);
-    // }
-
-    handleLoginWithSSO(e){
-        // window.open(IDP_INITIATED_BASE_URL + this.org.connectedAppId , '_blank');
-        window.open(this.org.connectedAppId , '_blank');
+    disabled = false;
+    
+    connectedCallback(){
+        this.disabled = (this.org.isActive == 'No');
+        // this.org.isSSOEnabled = (this.org.isSSOEnabled == true) ? 'Yes' : 'No' ;
     }
 
-    openOrgLoginPage(e){
-        let url = this.org.loginUrl + '?un=' + this.org.adminUserName;
-        window.open(url , '_blank');
-    }
 
     handleMenuSelect(event) {
         const selected = event.detail.value;
@@ -35,6 +27,15 @@ export default class OrgDetailCard extends LightningElement {
         else if (selected === 'view') {
             this.viewTheRecord();
         }
+    }
+
+    handleLoginWithSSO(e){
+        window.open(this.org.ipdInitiatedLoginUrl, '_blank');
+    }
+
+    openOrgLoginPage(e){
+        let url = this.org.loginUrl + '?un=' + this.org.adminUserName;
+        window.open(url , '_blank');
     }
 
     editTheRecord(e){
