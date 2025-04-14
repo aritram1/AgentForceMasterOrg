@@ -1,5 +1,5 @@
 <template>
-    <template if:false={disabled}>
+    <template if:true={org.isActive}>
         <div class="customcard">
             <lightning-card title={org.name} icon-name={org.icon}>
                 <div slot="actions" class="slds-button-group" role="group">
@@ -34,22 +34,11 @@
                     <div class="slds-var-m-bottom_x-small">
                         <strong>SSO Enabled ? </strong> {org.isSSOEnabledText}
                     </div>
-                    <!-- <div class="slds-var-p-left_x-small slds-grid">
-                        <strong class="slds-var-m-right_x-small">SSO Enabled?</strong>
-                        <lightning-input type="checkbox" label="" name="ssoEnabled" checked={org.isSSOEnabled} disabled></lightning-input>
-                    </div> -->
                     <div class="slds-var-m-bottom_x-small">
-<<<<<<< HEAD
                         <strong>IdP Initiated SSO URL:</strong> {org.ipdInitiatedLoginUrl}
                     </div>
                     <div class="slds-var-m-bottom_x-small">
                         <strong>Last Login :</strong> {org.lastLoginTime}
-=======
-                        <strong>Connected App URL:</strong> {org.connectedAppId}
-                    </div>
-                    <div class="slds-var-m-bottom_x-small">
-                        <strong>Last Login :</strong> {org.lastLoginTimeFormatted}
->>>>>>> 420ba1f5a101775f2954cfe75b36e58227bbab09
                     </div>
                     <div class="slds-var-m-bottom_x-small">
                         <strong>Login Status :</strong> {org.lastLoginStatus}
@@ -59,8 +48,8 @@
         </div>
     </template>
 
-    <template if:true={disabled}>
-        <div class="customcard disabled">
+    <template if:false={org.isActive}>
+        <div class="customcard inactive">
             <lightning-card title={org.name} icon-name={org.icon}>
                 <div slot="actions" class="slds-button-group" role="group">
                     <lightning-button label="Edit" data-url={org.adminUserName} onclick={editTheRecord} variant="brand"></lightning-button>
@@ -76,13 +65,19 @@
                         <strong>Admin Password:</strong> {org.adminUserPassword}
                     </div>
                     <div class="slds-var-m-bottom_x-small">
-                        <strong>Active ? </strong> {org.isActive}
+                        <strong>Active ? </strong> {org.isActiveText}
                     </div>
                     <div class="slds-var-m-bottom_x-small">
-                        <strong>Connected App Id:</strong> {org.connectedAppId}
+                        <strong>SSO Enabled ? </strong> {org.isSSOEnabledText}
                     </div>
                     <div class="slds-var-m-bottom_x-small">
-                        <strong>Last Login :</strong> {org.lastLoginDate} | {org.lastLoginStatus}
+                        <strong>IdP Initiated SSO URL:</strong> {org.ipdInitiatedLoginUrl}
+                    </div>
+                    <div class="slds-var-m-bottom_x-small">
+                        <strong>Last Login :</strong> {org.lastLoginTime}
+                    </div>
+                    <div class="slds-var-m-bottom_x-small">
+                        <strong>Login Status :</strong> {org.lastLoginStatus}
                     </div>
                 </div>
             </lightning-card>   

@@ -11,11 +11,11 @@ public with sharing class OrgSwitcherController {
                 IdP_Initiated_Login_URL__c,Last_Login_Time__c,
                 Login_URL__c,SSO_Enabled__c
             FROM Connected_Org__c 
-            ORDER BY Last_Login_Time__c asc
+            ORDER BY Last_Login_Time__c desc
             ];
         } catch (Exception ex) {
             // Log the exception and throw a user-friendly error
-            System.debug('Error fetching active connected orgs: ' + ex.getMessage());
+            System.debug('Error fetching connected orgs: ' + ex.getMessage());
             throw new AuraHandledException('Unable to fetch connected orgs. Please try again later.');
         }
     }
