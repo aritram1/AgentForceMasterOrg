@@ -5,14 +5,15 @@ import IDP_INITIATED_BASE_URL from '@salesforce/label/c.IdP_Initiated_Base_URL';
 export default class OrgDetailCard extends LightningElement {
 
     @api org;
-    disabled = false;
 
-    connectedCallback(){
-        this.disabled = (this.org.isActive == 'No');
-    }
+    // connectedCallback(){
+    //     this.disabled = (this.org.isActive == 'No');
+    //     this.ssoEnabled = (this.org.isSSOEnabled == true);
+    // }
 
     handleLoginWithSSO(e){
-        window.open(IDP_INITIATED_BASE_URL + this.org.connectedAppId , '_blank');
+        // window.open(IDP_INITIATED_BASE_URL + this.org.connectedAppId , '_blank');
+        window.open(this.org.connectedAppId , '_blank');
     }
 
     openOrgLoginPage(e){
@@ -51,10 +52,9 @@ export default class OrgDetailCard extends LightningElement {
     }
 
     viewTheRecord(e){
-        let recordId = this.org.id;
-        console.log('Edit the record1=> ' + recordId);
-        
+        let recordId = this.org.id;        
         // Construct the view page URL and Open
         const viewPageURL = DOMAIN_BASE_URL + '/lightning/r/Connected_Org__c/' + recordId + '/view';
+        window.open(viewPageURL , '_blank');
     }
 }
