@@ -5,7 +5,7 @@ export default class OrgSwitcher extends LightningElement {
     items = [];
     error;
     isLoading; // Spinner control
-    sortBy = 'Last_Login_Time__c'; // Default sort field
+    sortBy = 'Last_Login'; // Default sort field
     filterBy = 'All'; // Default filter field
     
     filterOptions = [
@@ -58,6 +58,7 @@ export default class OrgSwitcher extends LightningElement {
 
     handleFilterChange(e){
         this.filterBy = e.detail.value;
+        console.log('this.sortBy => ', this.sortBy);
         console.log('this.filterBy => ', this.filterBy);
         this.handleGetData();
     }
@@ -65,6 +66,7 @@ export default class OrgSwitcher extends LightningElement {
     handleSortChange(e){
         this.sortBy = e.detail.value;
         console.log('this.sortBy => ', this.sortBy);
+        console.log('this.filterBy => ', this.filterBy);
         this.handleGetData();
     }
 
