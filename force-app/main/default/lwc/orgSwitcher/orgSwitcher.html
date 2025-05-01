@@ -5,6 +5,26 @@
                 <lightning-formatted-text value="Current Org Details"></lightning-formatted-text>
             </div>
         </div>
+        <div class="slds-m-around_medium">
+            <lightning-combobox 
+            name="filterBy" 
+            label="Filter By" 
+            value={filterBy} 
+            placeholder="Select an option" 
+            options={filterOptions} 
+            onchange={handleFilterChange}>
+            </lightning-combobox>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-combobox 
+            name="sortBy" 
+            label="Sort By" 
+            value={sortBy} 
+            placeholder="Select an option" 
+            options={sortOptions} 
+            onchange={handleSortChange}>
+            </lightning-combobox>
+        </div>
         <div class="slds-p-around_x-small">
             <!-- Spinner Implementation -->
             <template if:true={isLoading}>
