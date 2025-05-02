@@ -4,7 +4,7 @@ public with sharing class OrgSwitcherController {
      * Retrieves data with caching enabled for improved performance.
      */
     @AuraEnabled(cacheable=true)
-    public static List<Connected_Org__c> getAvailableOrgs(String filterBy, String sortBy) {
+    public static List<Connected_Org__c> getAvailableOrgs(String filterBy, String orderBy) {
         try {
 
             // Use Database.query to dynamically sort by the provided field
@@ -16,7 +16,7 @@ public with sharing class OrgSwitcherController {
                 'Login_URL__c, SSO_Enabled__c ' +
                 'FROM Connected_Org__c ' +
                 getWhereClause(filterBy) + 
-                getOrderByClause(filterBy);
+                getOrderByClause(orderBy);
             System.debug('Query: ' + query);    
             return Database.query(query);
         } 
@@ -29,7 +29,7 @@ public with sharing class OrgSwitcherController {
 
 
 	private static String getOrderByClause(String orderBy){
-        // Construct the ORDER BY clause based on the `sortBy` parameter
+        // Construct the ORDER BY clause based on the `orderBy` parameter
         String orderByClause = '';
         if (orderBy == 'Name') {
             orderByClause = ' ORDER BY Name ASC';
