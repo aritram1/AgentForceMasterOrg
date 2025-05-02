@@ -13,7 +13,7 @@ public with sharing class OrgSwitcherController {
                 'IsActive__c, Connected_App_Id__c, ' +
                 'Last_Login_Status__c, Org_Icon__c, ' +
                 'IdP_Initiated_Login_URL__c, Last_Login_Time__c, ' +
-                'Login_URL__c, SSO_Enabled__c ' +
+                'Login_URL__c, SSO_Enabled__c, Github_Repo__c ' +
                 'FROM Connected_Org__c ' +
                 getWhereClause(filterBy) + 
                 getOrderByClause(orderBy);

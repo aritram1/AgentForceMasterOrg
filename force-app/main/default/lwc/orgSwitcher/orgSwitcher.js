@@ -45,7 +45,9 @@ export default class OrgSwitcher extends LightningElement {
                     isSSOEnabled: record.SSO_Enabled__c,
                     isSSOEnabledText: record.SSO_Enabled__c ? 'Yes' : 'No',
                     lastLoginTime: this.getFormattedLastLoginTime(record.Last_Login_Time__c),
-                    lastLoginStatus: record.Last_Login_Status__c
+                    lastLoginStatus: record.Last_Login_Status__c,
+                    githubRepo: record.Github_Repo__c,
+                    
                 });
             }
             this.error = undefined;
