@@ -44,6 +44,10 @@
                 <behavior>Readonly</behavior>
                 <field>IdP_Initiated_Login_URL__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Description__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

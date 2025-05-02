@@ -14,6 +14,7 @@ export default class OrgSwitcher extends LightningElement {
         { label: 'Inactive Orgs', value: 'Inactive_Orgs' },
         { label: 'SSO Enabled', value: 'SSO_Enabled' },
         { label: 'SSO Disabled', value: 'SSO_Disabled' },
+        { label: 'Orgs Not Logged in Last 30 Days', value: 'Orgs_Not_Logged_In_Last_30_Days' },
     ];
     sortOptions = [
         { label: 'Last Login', value: 'Last_Login' },
@@ -24,6 +25,7 @@ export default class OrgSwitcher extends LightningElement {
         this.isLoading = true; // Show spinner while loading
         getAvailableOrgs({ filterBy : this.filterBy, sortBy : this.sortBy })
         .then((data) => {
+            console.log('data size => ', data.length);
             this.items = data.map((record, index) => ({
                 serialNumber: index + 1,
                 id: record.Id,
@@ -38,10 +40,11 @@ export default class OrgSwitcher extends LightningElement {
                 isActiveText: record.IsActive__c ? 'Yes' : 'No',
                 isSSOEnabled: record.SSO_Enabled__c,
                 isSSOEnabledText: record.SSO_Enabled__c ? 'Yes' : 'No',
-                lastLoginTime: record.Last_Login_Time__c,
+                lastLoginTime: this.getFormattedLastLoginTime(record.Last_Login_Time__c),
                 lastLoginStatus: record.Last_Login_Status__c
             }));
             this.error = undefined;
+            console.log('data size2 => ', data.length);2
         })
         .catch((error) => {
             this.error = error;
@@ -58,16 +61,64 @@ export default class OrgSwitcher extends LightningElement {
 
     handleFilterChange(e){
         this.filterBy = e.detail.value;
-        console.log('this.sortBy => ', this.sortBy);
         console.log('this.filterBy => ', this.filterBy);
+        console.log('this.sortBy => ', this.sortBy);
         this.handleGetData();
     }
 
     handleSortChange(e){
         this.sortBy = e.detail.value;
-        console.log('this.sortBy => ', this.sortBy);
         console.log('this.filterBy => ', this.filterBy);
+        console.log('this.sortBy => ', this.sortBy);
         this.handleGetData();
+    }
+
+
+    // This small function converts date from "2025-05-02T17:06:21.000Z" format  to "5/2/2025, 10:06 AM" format
+    getFormattedLastLoginTime(dateString) {
+        let formattedLastLoginTime = '';
+        try{
+            if(!dateString) return '';
+        
+            // Convert to local time string
+            const lastLoginTime = new Date(dateString).toLocaleString("en-US", {
+                month: "numeric",
+                day: "numeric",
+                year: "numeric",
+                hour: "numeric",
+                minute: "2-digit",
+                hour12: true,
+                // timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone // Get the user's timezone
+            });
+            formattedLastLoginTime = lastLoginTime + this.getTimeDifferenceString(dateString);
+        }
+        catch(e){
+            console.log('error' + e);
+        }
+        return formattedLastLoginTime;
+    }
+
+    // This function calculates the time difference between the current date and the given date string
+    getTimeDifferenceString(dateString) {
+        let formattedTimeDifferenceString = '';
+        const now = new Date();
+        const pastDate = new Date(dateString);
+        const timeDifference = now - pastDate;
+        const daysAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        if (daysAgo === 0) {
+            const hoursAgo = Math.floor(timeDifference / (1000 * 60 * 60));
+            if (hoursAgo === 0) {
+                const minutesAgo = Math.floor(timeDifference / (1000 * 60));
+                formattedTimeDifferenceString = minutesAgo > 1 ? ` (${minutesAgo} minutes ago)` : `(${minutesAgo} minute ago)`;
+            } 
+            else {
+                formattedTimeDifferenceString = hoursAgo > 1 ? ` (${hoursAgo} hours ago)` : ` (${hoursAgo} hour ago)`;
+            }
+        } 
+        else {
+            formattedTimeDifferenceString = daysAgo > 1 ? ` (${daysAgo} days ago)` : ` (${daysAgo} day ago)`;
+        }
+        return formattedTimeDifferenceString;
     }
 
 }

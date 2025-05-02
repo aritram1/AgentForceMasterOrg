@@ -17,7 +17,7 @@ public with sharing class OrgSwitcherController {
                 'FROM Connected_Org__c ' +
                 getWhereClause(filterBy) + 
                 getOrderByClause(filterBy);
-                
+            System.debug('Query: ' + query);    
             return Database.query(query);
         } 
         catch (Exception ex) {
@@ -60,6 +60,11 @@ public with sharing class OrgSwitcherController {
         }
         else if (filterBy == 'SSO_Disabled') {
             whereClause = ' WHERE SSO_Enabled__c = false ';
+        }
+        else if (filterBy == 'Orgs_Not_Logged_In_Last_30_Days') {
+            DateTime last30Days = DateTime.now().addDays(-30);
+            String last30DaysString = last30Days.format('yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'');
+            whereClause = ' WHERE Last_Login_Time__c = null OR Last_Login_Time__c < ' + last30DaysString;
         }
         return whereClause;
     }
