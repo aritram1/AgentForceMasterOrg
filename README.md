@@ -138,7 +138,7 @@ To add a new SP org to the system, follow these steps:
    - the following components require to be in the subscriber org to facilitate usage tracking
    -- main login flow (`Custom_Login_Screen_Flow`) behind the login process and 
    -- the related controller (`Subscriber_LoginFlowController.cls`) to the new SP org.
-   -- the remote site (https://orgfarm-391f6ca95a-dev-ed.develop.my.salesforce-sites.com/usagemonitorsite/services/apexrest/api/usage/new)
+   -- the remote site (https://agentforcemainorg-391f6ca95a-dev-ed.develop.my.salesforce-sites.com/usagemonitorsite/services/apexrest/api/usage/new)
    -- custom labels for domain and idp url
 
 3. **Create a New Login Flow**:
@@ -186,5 +186,24 @@ To add a new SP org to the system, follow these steps:
 
 - **API Key Management**: The `UsageTrackingAPI` and `LoginFlowController` classes use a hardcoded API key. For better security, consider storing the key in Custom Metadata or Custom Settings.
 - **Custom Object**: The `Connected_Org__c` custom object is used to store details about connected orgs.
+- Org List
+   Type    Alias               Username                          Org ID             Status    Expires    
+ ─ ─────── ─────────────────── ───────────────────────────────── ────────────────── ───────── ────────── 
+   DevHub  aritram1            aritram1@gmail.com                00D80000000L1emEAC Connected            
+   DevHub  Aritram1DevhubOrg   aritram1@gmail.com.devhub         00DdL00000ESvAMUA1 Connected            
+           3DaysAppOrg         aritram2@agentforce.com           00DgK0000008aifUAA Connected            
+           adminUtilOrg        aritram1@gmail.com.au             00DdM00000JAqqPUAT Connected            
+           AgentForceOrg3      aritram3@agentforce.com           00DgL000000d5ZSUAY Connected            
+           AgentforceOrg4      aritram4@agentforce.com           00DgL000000nMfKUAU Connected            
+           AgentforceOrg5      aritram5@agentforce.com           00DgK000000qUR8UAM Connected            
+           expenso_c19a523a71  expenso@expenso.com               00DgL000002NMhpUAG Connected            
+           FiNest              aritram1@gmail.com.expenso        00DQy00000EdJp8MAF Connected            
+           finplan-managed     aritram1@gmail.com.financeplanner 00D5i00000CIhxbEAD Connected            
+           InterviewAppOrg     aritram1@agentforce.com.iview     00DgK000000gHHNUA2 Connected            
+           IoT Org             aritram1@gmail.com.iot            00D5g000002uhdlEAA Connected            
+           LWCRecipesOrg       aritram1@gmail.com.lwc            00D2w00000Bc84REAR Connected            
+           mainorgagentfoprce  aritram1@agentforce.com           00DgL000000nCQAUA2 Connected            
+
+Legend:  🌳=Default DevHub, 🍁=Default Org 
 
 -- EOD --
