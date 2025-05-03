@@ -7,7 +7,8 @@ export default class OrgSwitcher extends LightningElement {
     isLoading; // Spinner control
     sortBy = 'Last_Login'; // Default sort field
     filterBy = 'All'; // Default filter field
-    message = '';
+    countOfRecordsReturnedMessage = '';
+    noRecordsFoundMessage = "No Records returned, if you don't have any connected orgs, please create one.";
 
     filterOptions = [
         { label: 'All Orgs', value: 'All' },
@@ -58,7 +59,7 @@ export default class OrgSwitcher extends LightningElement {
             console.error('Error fetching available orgs:', error);
         })
         .finally(() => {
-            this.message = this.items.length > 0 ? `${this.items.length} Orgs found!` : 'No orgs found';
+            this.countOfRecordsReturnedMessage = this.items.length > 0 ? `${this.items.length} Orgs found!` : 'No orgs found';
             this.isLoading = false; // Hide spinner after data is loaded
         });
     }

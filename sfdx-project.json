@@ -7,6 +7,7 @@
   ],
   "name": "misc",
   "namespace": "",
-  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sfdcLoginUrl": "https://orgfarm-agentforcemainorg-dev-ed.develop.lightning.force.com",
   "sourceApiVersion": "63.0"
 }
+  
