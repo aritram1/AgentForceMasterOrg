@@ -5,14 +5,14 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Hero Description Part 1</shortDescription>
-        <value>https://orgfarm-agentforcemainorg-dev-ed.develop.lightning.force.com</value>
+        <value>https://orgfarm-391f6ca95a-dev-ed.develop.lightning.force.com</value>
     </labels>
     <labels>
         <fullName>IdP_Initiated_Base_URL</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>IdP Initiated base url</shortDescription>
-        <value>https://orgfarm-agentforcemainorg-dev-ed.develop.my.salesforce.com/idp/login?app=</value>
+        <value>https://orgfarm-391f6ca95a-dev-ed.develop.my.salesforce.com/idp/login?app=</value>
     </labels>
     <labels>
         <fullName>Secret_API_Key_For_UsageAPI</fullName>
@@ -26,6 +26,6 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>IdP Initiated base url</shortDescription>
-        <value>https://orgfarm-agentforcemainorg-dev-ed.develop.my.salesforce-sites.com/usagemonitorsite/services/apexrest/api/usage/new</value>
+        <value>https://orgfarm-391f6ca95a-dev-ed.develop.my.salesforce-sites.com/usagemonitorsite/services/apexrest/api/usage/new</value>
     </labels>
 </CustomLabels>

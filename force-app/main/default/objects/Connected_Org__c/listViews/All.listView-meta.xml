@@ -5,11 +5,12 @@
     <columns>Admin_User_Name__c</columns>
     <columns>Admin_User_Password__c</columns>
     <columns>IsActive__c</columns>
-    <columns>Connected_App_Id__c</columns>
+    <columns>SSO_Enabled__c</columns>
+    <columns>Data_Cloud_Available__c</columns>
+    <columns>Agentforce_Available__c</columns>
+    <columns>Last_Login_Time__c</columns>
     <columns>Last_Login_Status__c</columns>
-    <columns>Login_URL__c</columns>
-    <columns>Last_Login_Date__c</columns>
-    <columns>LAST_ACTIVITY</columns>
+    <columns>Github_Repo__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

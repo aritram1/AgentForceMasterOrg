@@ -99,6 +99,9 @@
                         <valueListItems>
                             <value>Global.NewTask</value>
                         </valueListItems>
+                        <valueListItems>
+                            <value>CustomButton.Connected_Org__c.Login_With_SSO</value>
+                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
