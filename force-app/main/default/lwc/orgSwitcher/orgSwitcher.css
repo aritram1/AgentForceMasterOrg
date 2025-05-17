@@ -19,9 +19,9 @@
 
 .view-switch-icon,
 .view-switch-icon.active {
+    margin-top: 20px;
     cursor: pointer;
     border-radius: var(--lwc-borderRadiusMedium, 4px);
-    transition: background 0.2s;
     height: 32px; /* Match combobox height */
     display: flex;
     align-items: center;
