@@ -6,62 +6,73 @@
             </div>
         </div>
         <div class="slds-p-around_small slds-grid slds-gutters slds-wrap">
-            <div class="slds-col org-switcher-picklists">
-                <div class="slds-grid slds-gutters">
-                    <div class="slds-col">
-                        <lightning-combobox 
-                            name="filterBy" 
-                            label="Filter By" 
-                            value={filterBy} 
-                            placeholder="Select an option" 
-                            options={filterOptions} 
-                            onchange={handleFilterChange}>
-                        </lightning-combobox>
-                    </div>
-                    <div class="slds-col">
-                        <lightning-combobox 
-                            name="sortBy" 
-                            label="Sort By" 
-                            value={sortBy} 
-                            placeholder="Select an option" 
-                            options={sortOptions} 
-                            onchange={handleSortChange}>
-                        </lightning-combobox>
+            <div class="slds-grid slds-gutters slds-wrap org-switcher-row">
+                <div class="slds-col slds-large-size_4-of-5 org-switcher-picklists">
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <lightning-combobox 
+                                name="filterBy" 
+                                label="Filter By" 
+                                value={filterBy} 
+                                placeholder="Select an option" 
+                                options={filterOptions} 
+                                onchange={handleFilterChange}>
+                            </lightning-combobox>
+                        </div>
+                        <div class="slds-col">
+                            <lightning-combobox 
+                                name="sortBy" 
+                                label="Sort By" 
+                                value={sortBy} 
+                                placeholder="Select an option" 
+                                options={sortOptions} 
+                                onchange={handleSortChange}>
+                            </lightning-combobox>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="slds-col org-switcher-icons slds-align-middle">
-                <!-- View Switcher Icons -->
-                <span 
-                    class={cardViewClass}
-                    role="button"
-                    tabindex="0"
-                    aria-label="Card View"
-                    title="Card View"
-                    onclick={showCardView}
-                    onkeydown={handleIconKeydown}
-                    data-view="card"
-                >
-                    <lightning-icon icon-name="utility:apps" size="small"></lightning-icon>
-                </span>
-                <span 
-                    class={tableViewClass}
-                    role="button"
-                    tabindex="0"
-                    aria-label="Table View"
-                    title="Table View"
-                    onclick={showTableView}
-                    onkeydown={handleIconKeydown}
-                    data-view="table"
-                >
-                    <lightning-icon icon-name="utility:table" size="small"></lightning-icon>
-                </span>
+                <div class="slds-col slds-large-size_1-of-5 org-switcher-icons slds-grid slds-grid_align-end slds-list_horizontal">
+                    <span 
+                        class={cardViewClass}
+                        role="button"
+                        tabindex="0"
+                        aria-label="Card View"
+                        title="Card View"
+                        onclick={showCardView}
+                        onkeydown={handleIconKeydown}
+                        data-view="card"
+                    >
+                        <lightning-icon icon-name="utility:apps" size="small"></lightning-icon>
+                    </span>
+                    <span 
+                        class={tableViewClass}
+                        role="button"
+                        tabindex="0"
+                        aria-label="Table View"
+                        title="Table View"
+                        onclick={showTableView}
+                        onkeydown={handleIconKeydown}
+                        data-view="table"
+                    >
+                        <lightning-icon icon-name="utility:table" size="small"></lightning-icon>
+                    </span>
+                    <!-- Switch for view toggle -->
+                    <lightning-input 
+                        type="toggle"
+                        label="Toggle View"
+                        class="slds-var-m-left_x-small"
+                        checked={isCardView}
+                        onchange={handleSwitchToggle}
+                        variant="label-hidden"
+                        title="Toggle between Card and Table view"
+                    ></lightning-input>
+                </div>
             </div>
         </div>
-        <div class="slds-p-around_x-small">
+        <div class="slds-var-p-around_x-small">
             <!-- Spinner Implementation -->
             <template if:true={isLoading}>
-                <div class="slds-align_absolute-center slds-m-around_medium">
+                <div class="slds-align_absolute-center slds-var-m-around_medium">
                     <lightning-spinner alternative-text="Loading connected orgs"></lightning-spinner>
                 </div>
             </template>
@@ -79,7 +90,7 @@
                 </template>
                 <template if:false={isCardView}>
                     <!-- Simple Table View Example -->
-                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m_top_medium">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered ">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -104,7 +115,7 @@
 
             <!-- No Items Message -->
             <template if:false={items.length}>
-                <div class="slds-m-around_medium slds-text-align_center">
+                <div class="slds-var-m-around_medium slds-text-align_center">
                     {noRecordsFoundMessage}
                 </div>
             </template>

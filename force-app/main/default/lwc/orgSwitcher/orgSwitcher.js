@@ -30,7 +30,7 @@ export default class OrgSwitcher extends LightningElement {
     }
 
     get cardViewClass() {
-        return `view-switch-icon slds-var-p-around_xx-small slds-icon_container${this.isCardView ? ' active' : ''}`;
+        return `view-switch-icon slds-var-p-around_xx-small .isCardView ? ' active' : ''}`;
     }
     get tableViewClass() {
         return `view-switch-icon slds-var-p-around_xx-small slds-icon_container slds-var-m-left_xx-small${!this.isCardView ? ' active' : ''}`;
@@ -101,6 +101,10 @@ export default class OrgSwitcher extends LightningElement {
         console.log('this.filterBy => ', this.filterBy);
         console.log('this.sortBy => ', this.sortBy);
         this.handleGetData();
+    }
+
+    handleSwitchToggle(event) {
+        this.viewMode = event.target.checked ? 'card' : 'table';
     }
 
 
