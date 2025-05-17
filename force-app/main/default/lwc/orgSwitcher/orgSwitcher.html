@@ -6,25 +6,56 @@
             </div>
         </div>
         <div class="slds-p-around_small slds-grid slds-gutters slds-wrap">
-            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
-                <lightning-combobox 
-                name="filterBy" 
-                label="Filter By" 
-                value={filterBy} 
-                placeholder="Select an option" 
-                options={filterOptions} 
-                onchange={handleFilterChange}>
-                </lightning-combobox>
+            <div class="slds-col org-switcher-picklists">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <lightning-combobox 
+                            name="filterBy" 
+                            label="Filter By" 
+                            value={filterBy} 
+                            placeholder="Select an option" 
+                            options={filterOptions} 
+                            onchange={handleFilterChange}>
+                        </lightning-combobox>
+                    </div>
+                    <div class="slds-col">
+                        <lightning-combobox 
+                            name="sortBy" 
+                            label="Sort By" 
+                            value={sortBy} 
+                            placeholder="Select an option" 
+                            options={sortOptions} 
+                            onchange={handleSortChange}>
+                        </lightning-combobox>
+                    </div>
+                </div>
             </div>
-            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
-                <lightning-combobox 
-                name="sortBy" 
-                label="Sort By" 
-                value={sortBy} 
-                placeholder="Select an option" 
-                options={sortOptions} 
-                onchange={handleSortChange}>
-                </lightning-combobox>
+            <div class="slds-col org-switcher-icons slds-align-middle">
+                <!-- View Switcher Icons -->
+                <span 
+                    class={cardViewClass}
+                    role="button"
+                    tabindex="0"
+                    aria-label="Card View"
+                    title="Card View"
+                    onclick={showCardView}
+                    onkeydown={handleIconKeydown}
+                    data-view="card"
+                >
+                    <lightning-icon icon-name="utility:apps" size="small"></lightning-icon>
+                </span>
+                <span 
+                    class={tableViewClass}
+                    role="button"
+                    tabindex="0"
+                    aria-label="Table View"
+                    title="Table View"
+                    onclick={showTableView}
+                    onkeydown={handleIconKeydown}
+                    data-view="table"
+                >
+                    <lightning-icon icon-name="utility:table" size="small"></lightning-icon>
+                </span>
             </div>
         </div>
         <div class="slds-p-around_x-small">
@@ -37,13 +68,38 @@
 
             <!-- Display Items -->
             <template if:true={items.length}>
-                <div class="slds-grid slds-wrap">
-                    <template for:each={items} for:item="item">
-                        <div key={item.id} class="slds-col slds-size_1-of-3">
-                            <c-org-detail-card org={item}></c-org-detail-card>
-                        </div>
-                    </template>
-                </div>
+                <template if:true={isCardView}>
+                    <div class="slds-grid slds-wrap">
+                        <template for:each={items} for:item="item">
+                            <div key={item.id} class="slds-col slds-size_1-of-3">
+                                <c-org-detail-card org={item}></c-org-detail-card>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+                <template if:false={isCardView}>
+                    <!-- Simple Table View Example -->
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m_top_medium">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <!-- Add more columns as needed -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={items} for:item="item">
+                                <tr key={item.id}>
+                                    <td>{item.name}</td>
+                                    <td>{item.type}</td>
+                                    <td>{item.status}</td>
+                                    <!-- Add more cells as needed -->
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </template>
             </template>
 
             <!-- No Items Message -->

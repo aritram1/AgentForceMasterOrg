@@ -11,3 +11,32 @@
     border: 2px solid hwb(271 2% 60%);
     border-radius: 10px;
 }
+
+.org-switcher-row {
+    align-items: flex-end; /* Align picklists and icons at the bottom */
+}
+
+.org-switcher-picklists {
+    width: 90%;
+    min-width: 0;
+}
+
+.org-switcher-icons {
+    width: 10%;
+    min-width: 60px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.view-switch-icon,
+.view-switch-icon.active {
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+    height: 32px; /* Match combobox height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

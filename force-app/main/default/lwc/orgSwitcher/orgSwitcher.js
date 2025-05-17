@@ -23,6 +23,27 @@ export default class OrgSwitcher extends LightningElement {
         { label: 'Name', value: 'Name' }
     ];
 
+    @track viewMode = 'card'; // 'card' or 'table'
+
+    get isCardView() {
+        return this.viewMode === 'card';
+    }
+
+    get cardViewClass() {
+        return `view-switch-icon slds-var-p-around_xx-small slds-icon_container${this.isCardView ? ' active' : ''}`;
+    }
+    get tableViewClass() {
+        return `view-switch-icon slds-var-p-around_xx-small slds-icon_container slds-var-m-left_xx-small${!this.isCardView ? ' active' : ''}`;
+    }
+
+    showCardView() {
+        this.viewMode = 'card';
+    }
+
+    showTableView() {
+        this.viewMode = 'table';
+    }
+
     handleGetData() {
         this.isLoading = true; // Show spinner while loading
         getAvailableOrgs({ filterBy : this.filterBy, orderBy : this.sortBy })
