@@ -3,6 +3,7 @@
     <fullName>Agentforce_Available__c</fullName>
     <defaultValue>false</defaultValue>
     <label>Agentforce Available?</label>
+    <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>
 </CustomField>
