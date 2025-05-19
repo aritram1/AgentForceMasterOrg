@@ -1,54 +1,138 @@
 <template>
     <lightning-card title="Switch to another Org">
-        <div class="slds-p-around_x-small">
-            <div class="slds-align_absolute-center slds-p-around_small">
+        <div class="slds-var-p-around_x-small">
+            <div class="slds-align_absolute-center slds-var-p-around_small">
                 <lightning-formatted-text value={message}></lightning-formatted-text>
             </div>
         </div>
-        <div class="slds-p-around_small slds-grid slds-gutters slds-wrap">
-            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+
+        <!-- Simplified & Aligned Controls -->
+        <div class="slds-var-p-around_small slds-grid slds-gutters slds-wrap org-switcher-row">
+            <!-- Filter By -->
+            <div class="slds-col slds-small-size_6-of-12">
                 <lightning-combobox 
-                name="filterBy" 
-                label="Filter By" 
-                value={filterBy} 
-                placeholder="Select an option" 
-                options={filterOptions} 
-                onchange={handleFilterChange}>
+                    name="filterBy" 
+                    label="Filter By" 
+                    value={filterBy} 
+                    placeholder="Select an option" 
+                    options={filterOptions} 
+                    onchange={handleFilterChange}>
                 </lightning-combobox>
             </div>
-            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+
+            <!-- Sort By -->
+            <div class="slds-col slds-small-size_5-of-12">
                 <lightning-combobox 
-                name="sortBy" 
-                label="Sort By" 
-                value={sortBy} 
-                placeholder="Select an option" 
-                options={sortOptions} 
-                onchange={handleSortChange}>
+                    name="sortBy" 
+                    label="Sort By" 
+                    value={sortBy} 
+                    placeholder="Select an option" 
+                    options={sortOptions} 
+                    onchange={handleSortChange}>
                 </lightning-combobox>
+            </div>
+
+            <!-- View Toggle Icons -->
+            <div class="slds-col slds-small-size_1-of-12 slds-grid">
+                <span 
+                    class={cardViewClass}
+                    role="button"
+                    tabindex="0"
+                    aria-label="Card View"
+                    title="Card View"
+                    onclick={showCardView}
+                    onkeydown={handleIconKeydown}
+                    data-view="card"
+                >
+                    <lightning-icon icon-name="utility:apps" size="small"></lightning-icon>
+                </span>
+                <span 
+                    class={tableViewClass}
+                    role="button"
+                    tabindex="0"
+                    aria-label="Table View"
+                    title="Table View"
+                    onclick={showTableView}
+                    onkeydown={handleIconKeydown}
+                    data-view="table"
+                >
+                    <lightning-icon icon-name="utility:table" size="small"></lightning-icon>
+                </span>
             </div>
         </div>
-        <div class="slds-p-around_x-small">
+
+        <div class="slds-var-p-around_x-small">
             <!-- Spinner Implementation -->
             <template if:true={isLoading}>
-                <div class="slds-align_absolute-center slds-m-around_medium">
+                <div class="slds-align_absolute-center slds-var-m-around_medium">
                     <lightning-spinner alternative-text="Loading connected orgs"></lightning-spinner>
                 </div>
             </template>
 
             <!-- Display Items -->
             <template if:true={items.length}>
-                <div class="slds-grid slds-wrap">
-                    <template for:each={items} for:item="item">
-                        <div key={item.id} class="slds-col slds-size_1-of-3">
-                            <c-org-detail-card org={item}></c-org-detail-card>
-                        </div>
-                    </template>
-                </div>
+                <template if:true={isCardView}>
+                    <div class="slds-grid slds-wrap">
+                        <template for:each={items} for:item="item">
+                            <div key={item.id} class="slds-col slds-size_1-of-3">
+                                <c-org-detail-card org={item}></c-org-detail-card>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+                <template if:false={isCardView}>
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>SSO Enabled?</th>
+                                <th>Active?</th>
+                                <th>Last Login Time</th>
+                                <th>Last Login Status?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={items} for:item="item">
+                                <tr key={item.id}>
+                                    <td>{item.name}</td>
+                                    <td>{item.isSSOEnabledText}</td>
+                                    <td>{item.isActiveText}</td>
+                                    <td>{item.lastLoginTime}</td>
+                                    <td>{item.lastLoginStatus}</td>
+                                    <td>
+                                        <lightning-button 
+                                            label="View" 
+                                            data-url={item.adminUserName} 
+                                            onclick={viewTheRecord} 
+                                            variant="neutral">
+                                        </lightning-button>
+                                    </td>
+                                    <td>
+                                        <lightning-button 
+                                            label="Login" 
+                                            data-url={item.adminUserName} 
+                                            onclick={loginTheRecord} 
+                                            variant="neutral">
+                                        </lightning-button>
+                                    </td>
+                                    <td>
+                                        <lightning-button 
+                                            label="SSO Login" 
+                                            data-url={item.adminUserName} 
+                                            onclick={ssoLoginTheRecord} 
+                                            variant="neutral">
+                                        </lightning-button>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </template>
             </template>
 
             <!-- No Items Message -->
             <template if:false={items.length}>
-                <div class="slds-m-around_medium slds-text-align_center">
+                <div class="slds-var-m-around_medium slds-text-align_center">
                     {noRecordsFoundMessage}
                 </div>
             </template>

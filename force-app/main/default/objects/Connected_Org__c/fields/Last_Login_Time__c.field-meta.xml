@@ -3,6 +3,7 @@
     <fullName>Last_Login_Time__c</fullName>
     <label>Last Login Time</label>
     <required>false</required>
+    <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>DateTime</type>
 </CustomField>

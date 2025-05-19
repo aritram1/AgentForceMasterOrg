@@ -3,6 +3,7 @@
     <fullName>Last_Login_Status__c</fullName>
     <label>Last Login Status</label>
     <required>false</required>
+    <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>

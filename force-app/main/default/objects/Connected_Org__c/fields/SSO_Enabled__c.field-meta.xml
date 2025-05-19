@@ -3,6 +3,7 @@
     <fullName>SSO_Enabled__c</fullName>
     <defaultValue>false</defaultValue>
     <label>SSO Enabled?</label>
+    <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>
 </CustomField>

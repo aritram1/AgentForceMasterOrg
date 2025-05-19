@@ -1,13 +1,29 @@
 .container{
-    border: 2px solid rebeccapurple;
+    border: var(--lwc-borderWidthThick, 2px) solid rebeccapurple;
     border-radius: 10px;
 }
 .card{
-    border: 2px solid hwb(271 2% 60%);
+    border: var(--lwc-borderWidthThick, 2px) solid hwb(271 2% 60%);
     border-radius: 10px;
 }
 
 .rounded-corners{
-    border: 2px solid hwb(271 2% 60%);
+    border: var(--lwc-borderWidthThick, 2px) solid hwb(271 2% 60%);
     border-radius: 10px;
+}
+
+.org-switcher-icons {
+    gap: 0.5rem;
+    min-width: 60px;
+}
+
+.view-switch-icon,
+.view-switch-icon.active {
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: var(--lwc-borderRadiusMedium, 4px);
+    height: 32px; /* Match combobox height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
