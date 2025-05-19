@@ -10,6 +10,8 @@
 		<name>PermissionSet</name>
 	</types>
 	<types>
+		<members>Usage_API_Endpoint</members>
+		<members>Secret_API_Key_For_UsageAPI</members>
 		<members>Domain_Base_URL</members>
 		<members>IdP_Initiated_Base_URL</members>
 		<name>CustomLabel</name>
